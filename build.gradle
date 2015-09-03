@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+group = 'ua.org.shaddy'
+version = '1.0-SNAPSHOT'
+
+description = """microtools"""
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: "file:///home/shaddy/maven_repository/")
+    }
+}
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    testCompile group: "junit", name: "junit", version: "4.+"
+}
+
+
+sourceSets {
+	main {
+		java {  srcDir "src/main/java"  }
+		/*resources {
+			srcDir "src/main/config"
+			srcDir "src/main/resources"
+		}*/
+	}
+	test {
+		java { srcDir "src/test/java" }
+		resources {
+			srcDir "src/test/resources"
+		}
+	}
+}
