@@ -9,7 +9,7 @@ description = """microtools"""
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
-
+ 
 
 uploadArchives {
     repositories.mavenDeployer {
@@ -27,7 +27,7 @@ dependencies {
 }
 
 task sourceJar(type: Jar) {
-    from sourceSets.main.allJava
+    from sourceSets.main.allSource
 }
 
 
@@ -45,4 +45,7 @@ sourceSets {
 			srcDir "src/test/resources"
 		}
 	}
+}
+jar {
+     from sourceSets.main.allSource
 }
